@@ -180,7 +180,7 @@ router.get('/users/active', async (req, res) => {
         const  userIdToExclude  = req.query.id; // Récupérer l'ID de l'utilisateur à exclure depuis les paramètres de requête
         // Construire la requête MongoDB pour obtenir tous les utilisateurs actifs sauf l'utilisateur spécifié
         const query = { actif: true, _id: { $ne: userIdToExclude } };
-        const UserActifs = await User.find(query); // Modifier en fonction de votre modèle utilisateur
+        const UserActifs = await User.find(query);
         res.json({ UserActifs });
     } catch (error) {
         console.error('Erreur lors de la récupération des utilisateurs actifs', error);
