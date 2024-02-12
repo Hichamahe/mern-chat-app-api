@@ -15,6 +15,12 @@ const userRoutes = require('./Routes/User');
 app.use('/', messagesRoutes);
 app.use('/', userRoutes);
 
+
+app.use(express.static('client/build'));
+app.get('*', (req, res) => {
+  res.sendFile(`${__dirname}/client/build/index.html`)
+})
+
 const socketIo = require('socket.io');
 const configureSockets = require('./Sockets/sockets');
 
