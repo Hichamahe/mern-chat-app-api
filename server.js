@@ -15,10 +15,8 @@ const userRoutes = require('./Routes/User');
 app.use('/', messagesRoutes);
 app.use('/', userRoutes);
 
-
-app.use(express.static('client/build'));
-app.get('*', (req, res) => {
-  res.sendFile(`${__dirname}/client/build/index.html`)
+app.get('/test', (req, res) => { 
+    res.json({msg:'hello hicham your app is running!'})
 })
 
 const socketIo = require('socket.io');
